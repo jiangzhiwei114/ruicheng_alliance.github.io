@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>瑞城联盟|发展历史·鉴往知来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans CJK SC', '黑体', 'Microsoft YaHei', 'PingFang SC', 'Arial', sans-serif;
+            background-color: #f5f5f0;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem;
+            background-color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-placeholder {
+            width: 52px;
+            height: 52px;
+            background-color: #e0e0d5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2a5a2a;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2a2a2a;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 2px;
+            background-color: #ccc;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.9rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            background-color: #2a5a2a;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            outline: 1px solid #ccc;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2a5a2a;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content {
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            line-height: 1.5;
+            background-color: #fafaf5;
+            padding: 0.8rem 1rem;
+            border: 1px solid #eee;
+        }
+
+        .timeline-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .history-btn {
+            display: inline-block;
+            background-color: #2a7a2a;
+            color: white;
+            text-decoration: none;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #2a5a2a;
+        }
+
+        .history-btn:hover {
+            background-color: #1e5a1e;
+        }
+        .friend-links {
+            border-top: 1px solid #ddd;
+            padding: 1.2rem 0 0.8rem;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .friend-links h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.6rem;
+        }
+
+        .links-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .links-group a {
+            color: #2a5a2a;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .links-group a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 2rem;
+            padding: 1rem 0 0.5rem;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #5a5a5a;
+        }
+
+        .footer-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-btn {
+            background: none;
+            color: #2a5a2a;
+            text-decoration: none;
+            border: 1px solid #aaa;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .footer-btn:hover {
+            background-color: #eaeae0;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 1rem;
+            }
+            .timeline {
+                padding-left: 1rem;
+            }
+            .timeline-item {
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="navbar">
+        <div class="logo-area">
+            <div class="logo-placeholder">
+                <img src="image/logo.png" alt="联盟徽章" onerror="this.style.display='none'">
+            </div>
+            <div class="logo-text">瑞城联盟</div>
+        </div>
+        <div class="nav-menu">
+            <a href="homepage.html">首页</a>
+            <a href="ruifengsac.html">瑞丰</a>
+            <a href="history.html">发展历史</a>
+            <a href="#">关于</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>发展历史</h2>
+        <div class="timeline">
+   
+            <div class="timeline-item">
+                <div class="timeline-date">2019年</div>
+                <div class="timeline-content">
+                    <p>瑞城联盟的故事始于这一年。几位创始成员在小型私人服务器中尝试轨道交通建设与城市布局，虽然规模极小、参与者有限，但奠定了联盟最初的协作精神与技术探索方向。这一阶段积累的建筑经验与开发工具，为后续所有规划提供了不可替代的早期储备。</p>
+                </div>
+            </div>
+
+
+            <div class="timeline-item">
+                <div class="timeline-date">2025年8月25日</div>
+                <div class="timeline-content">
+                    <p>经过多年沉淀，联盟前身组织正式提出系统化的城市群与轨道交通联合构想。首次明确“以轨道交通连接多都市”的核心理念，并开始起草初步章程与技术规范。这一天被视为瑞城联盟理念正式诞生的里程碑。</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2025年10月5日</div>
+                <div class="timeline-content">
+                    <p>羽联城建服务器（现名羽联服务器）3.0版本正式上线，标志着联盟拥有了首个稳定运行的MTR轨道交通实践平台。服务器以城建与轨道交通为核心，吸引了第一批建设者入驻，为后续瑞丰特别行政区的设立提供了直接的技术与人才支持。</p>
+                    <a href="https://unicomweb.pages.dev/history" target="_blank" class="history-btn">查看优联科历史 →</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2026年2月13日</div>
+                <div class="timeline-content">
+                    <p>依据《羽联服务器基本条例》及自治可行性调查，原瑞丰市正式升格为瑞丰特别行政区。此次改制赋予特区自主立法权与更灵活的规划权限，成为瑞城联盟体系内第一座拥有明确行政层级的城市，为联盟标准化管理开创先例。</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2026年3月7日</div>
+                <div class="timeline-content">
+                    <p>瑞丰特别行政区管理委员会发布首套电子法例，涵盖虚拟社区治理、建设规范、玩家权益保障等内容。法例的出台标志着特区从“自发建设”进入“有章可循”的新阶段，也为联盟其他成员城市提供了可参照的治理模板。</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2026年4月5日</div>
+                <div class="timeline-content">
+                    <p>基于瑞丰特别行政区的发展经验与早期规划遗产，瑞城联盟正式宣告成立。联盟以“连接每一座理想城”为宗旨，整合多个轨道交通服务器城市，推动跨服建筑协作、线路标准统一与社区资源共享。未来将开放成员城市申请、联合规划项目及联盟论坛，持续完善瑞联轨（Ruilink）技术标准。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="friend-links">
+        <h3>友情链接</h3>
+        <div class="links-group">
+            <a href="#" onclick="alert('瑞城联盟QQ频道筹备中，敬请期待~'); return false;">联盟社区</a>
+            <a href="https://unicomweb.pages.dev/" target="_blank">优联科</a>
+            <a href="#" onclick="alert('还没把链接打上去awa~'); return false;">天海雯溪联盟</a>
+        </div>
+             <p style="font-size:0.7rem; margin-top: 0.6rem; color: #6a6a6a;">点击链接即可跳转，部分资源为规划参考。</p>
+     </div>
+
+    <div class="footer">
+        <div class="footer-buttons">
+            <a href="#" class="footer-btn" onclick="alert('服务器地址即将公布，敬请期待~'); return false;">加入我们</a>
+            <a href="homepage.html" class="footer-btn">瑞城联盟首页</a>
+            <a href="#" id="backToTopBtn" class="footer-btn">返回顶部</a>
+        </div>
+        <div class="copyright">
+            © 2026 瑞城联盟 | 保留所有权利
+        </div>
+    </div>
+</div>
+
+<script>
+    const backBtn = document.getElementById('backToTopBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+</script>
+</body>
+</html>

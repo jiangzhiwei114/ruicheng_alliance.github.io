@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>瑞城联盟|瑞蓂·瑞蓂才半折 金蕊已争妍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans CJK SC', '黑体', 'Microsoft YaHei', 'PingFang SC', 'Arial', sans-serif;
+            background-color: #f5f5f0;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem;
+            background-color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-placeholder {
+            width: 52px;
+            height: 52px;
+            background-color: #e0e0d5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2a5a2a;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2a2a2a;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .text-block {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .text-block p {
+            margin-bottom: 0.8rem;
+        }
+
+        .progress-section {
+            margin: 1rem 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+            color: #4a4a4a;
+        }
+
+        .progress-bar-bg {
+            background: #eaeae0;
+            height: 8px;
+            width: 100%;
+        }
+
+        .progress-bar-fill {
+            width: 30%;
+            background-color: #2a5a2a;
+            height: 8px;
+        }
+
+        .button-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .btn {
+            font-family: inherit;
+            font-weight: 500;
+            border: 1px solid #ccc;
+            background-color: #2a7a2a;
+            color: white;
+            padding: 0.5rem 1.4rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #1e5a1e;
+        }
+
+        .friend-links {
+            border-top: 1px solid #ddd;
+            padding: 1.2rem 0 0.8rem;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .friend-links h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.6rem;
+        }
+
+        .links-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .links-group a {
+            color: #2a5a2a;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .links-group a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding: 1rem 0 0.5rem;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #5a5a5a;
+        }
+
+        .footer-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-btn {
+            background: none;
+            color: #2a5a2a;
+            text-decoration: none;
+            border: 1px solid #aaa;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .footer-btn:hover {
+            background-color: #eaeae0;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="navbar">
+        <div class="logo-area">
+            <div class="logo-placeholder">
+                <img src="image/logo.png" alt="联盟徽章" onerror="this.style.display='none'">
+            </div>
+            <div class="logo-text">瑞城联盟</div>
+        </div>
+        <div class="nav-menu">
+            <a href="#intro">行政区介绍</a>
+            <a href="#">交通</a>
+            <a href="#">玩家守则</a>
+            <a href="#">联系方式</a>
+        </div>
+    </div>
+
+    <div id="intro" class="section">
+        <h2>瑞蓂市 · 行政区介绍</h2>
+        <div class="text-block">
+            <p>瑞蓂市是瑞城联盟第一座位于本服务器的城市，拥有完全的规划、管理、建设自主权。市名取自《宋词》“瑞蓂才半折，金蕊已争妍”，寓意祥瑞生长、生生不息。</p>
+            <p>作为联盟体系内继瑞丰特别行政区之后的第二个正式城市，瑞蓂市将承载联盟核心服务器的主要功能，包括行政中枢、交通枢纽与玩家社区。城市采用自主规划模式，建设团队可根据实际需求灵活调整发展节奏，充分体现“联盟统筹、城市自治”的管理理念。</p>
+            <p>目前城市处于建设阶段，预计2026年7月开放试运营。开放后将逐步完善轨道交通网络、公共建筑群及玩家服务设施，打造宜居、高效、有活力的轨道交通都市。</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>开发进度</h2>
+        <div class="progress-section">
+            <div class="progress-label">
+                <span>整体工程进度</span>
+                <span>30%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 30%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-area">
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-upc@outlook.com&subject=瑞城服务器瑞蓂市规划意见" target="_blank" class="btn">提交规划意见</a>
+    </div>
+
+     <div class="friend-links">
+        <h3>友情链接</h3>
+        <div class="links-group">
+            <a href="#" onclick="alert('瑞城联盟QQ频道筹备中，敬请期待~'); return false;">联盟社区</a>
+            <a href="https://unicomweb.pages.dev/" target="_blank">优联科</a>
+            <a href="#" onclick="alert('还没把链接打上去awa~'); return false;">天海雯溪联盟</a>
+        </div>
+             <p style="font-size:0.7rem; margin-top: 0.6rem; color: #6a6a6a;">点击链接即可跳转，部分资源为规划参考。</p>
+     </div>
+
+    <div class="footer">
+        <div class="footer-buttons">
+            <a href="homepage.html" class="footer-btn">瑞城联盟首页</a>
+            <a href="#" id="backToTopBtn" class="footer-btn">回到顶部</a>
+        </div>
+        <div class="copyright">
+            © 2026 瑞城联盟 | 保留所有权利
+        </div>
+    </div>
+</div>
+
+<script>
+    const backBtn = document.getElementById('backToTopBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+</script>
+</body>
+</html>

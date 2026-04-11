@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>瑞城联盟|瑞丰·绿水青山 科学发展</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans CJK SC', '黑体', 'Microsoft YaHei', 'PingFang SC', 'Arial', sans-serif;
+            background-color: #f5f5f0;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem;
+            background-color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-placeholder {
+            width: 52px;
+            height: 52px;
+            background-color: #e0e0d5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2a5a2a;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2a2a2a;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .hero-banner {
+            width: 100%;
+            margin-bottom: 2rem;
+            background-color: #eaeae0;
+            border: none;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .text-block {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .text-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            background-color: #eaeae0;
+            border: 1px solid #ccc;
+            padding: 2rem;
+            margin: 0.8rem 0 1rem 0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .transport-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 0.8rem 0;
+        }
+
+        .transport-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .transport-name {
+            width: 140px;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        .transport-detail {
+            flex: 1;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+        }
+
+        .company-list {
+            display: inline-block;
+            background-color: #e8e8e0;
+            padding: 0.1rem 0.6rem;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .sub-placeholder {
+            color: #4a4a4a;
+            font-size: 0.85rem;
+            font-family: monospace;
+            margin-top: 0.2rem;
+        }
+
+        .rail-sub-section {
+            margin: 1rem 0 1rem 0;
+        }
+
+        .rail-sub-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f0f0e8;
+        }
+
+        .rail-sub-name {
+            width: 110px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .rail-sub-desc {
+            color: #1a1a1a;
+            font-size: 0.85rem;
+        }
+
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.5rem 0 1.5rem;
+        }
+
+        .two-columns > div {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .qrcode-placeholder {
+            border: 1px solid #ccc;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: #fafaf5;
+        }
+
+        .qrcode-box {
+            width: 160px;
+            height: 160px;
+            background-color: #eaeae0;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qrcode-box img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .contact-block {
+            border: 1px solid #ddd;
+            padding: 1.2rem;
+            background-color: #fafaf5;
+            margin-top: 0.2rem;
+        }
+
+        .email-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .email-card {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.8rem;
+        }
+
+        .email-card:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .email-btn {
+            display: inline-block;
+            background-color: #2a7a2a;
+            color: white;
+            text-decoration: none;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            border: 1px solid #2a5a2a;
+            margin-bottom: 0.4rem;
+        }
+
+        .email-btn:hover {
+            background-color: #1e5a1e;
+        }
+
+        .email-biz {
+            display: block;
+            font-size: 0.8rem;
+            color: #4a4a4a;
+            line-height: 1.4;
+            margin-top: 0.2rem;
+        }
+
+        .button-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .btn {
+            font-family: inherit;
+            font-weight: 500;
+            border: 1px solid #ccc;
+            background-color: #2a7a2a;
+            color: white;
+            padding: 0.5rem 1.4rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #2a5a2a;
+            border: 1px solid #2a5a2a;
+        }
+
+        .btn:hover {
+            background-color: #1e5a1e;
+            color: white;
+        }
+        .btn-outline:hover {
+            background-color: #e8f0e0;
+        }
+
+        .friend-links {
+            border-top: 1px solid #ddd;
+            padding: 1.2rem 0 0.8rem;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .friend-links h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.6rem;
+        }
+
+        .links-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .links-group a {
+            color: #2a5a2a;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .links-group a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding: 1rem 0 0.5rem;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #5a5a5a;
+        }
+
+        .footer-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-btn {
+            background: none;
+            color: #2a5a2a;
+            text-decoration: none;
+            border: 1px solid #aaa;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .footer-btn:hover {
+            background-color: #eaeae0;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 1rem;
+            }
+            .transport-name {
+                width: 100%;
+                margin-bottom: 0.2rem;
+            }
+            .rail-sub-name {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="navbar">
+        <div class="logo-area">
+            <div class="logo-placeholder">
+                <img src="image/logo.png" alt="联盟徽章" onerror="this.style.display='none'">
+            </div>
+            <div class="logo-text">瑞城联盟</div>
+        </div>
+        <div class="nav-menu">
+            <a href="#intro">行政区介绍</a>
+            <a href="#transport">交通</a>
+            <a href="#rules">玩家守则</a>
+            <a href="#contact">联系方式</a>
+        </div>
+    </div>
+
+    <div class="hero-banner">
+        <img src="image/ruifeng_title.png" alt="瑞丰特别行政区" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#eaeae0'; this.parentElement.style.minHeight='140px';">
+    </div>
+
+    <div id="intro" class="section">
+        <h2>瑞丰</h2>
+        <div class="text-block">
+            <p>瑞丰特别行政区成立于<strong>2026年2月13日</strong>，隶属于<strong>羽联服务器下属都市</strong>之一，是瑞城联盟<strong>第一座正式规划城市</strong>，其宣传口号为<strong>“绿水青山，科学发展”</strong>，通过加盟形式为服务器提供创意建筑、轨道交通拓展与社区活力，各项基建稳步推进。</p>
+        </div>
+    </div>
+
+    <div id="transport" class="section">
+        <h2>轨道交通线网图</h2>
+        <div class="map-placeholder">
+            <img src="image/ruifeng_railmap.png" alt="线网图" onerror="this.style.display='none'">
+        </div>
+        <div class="text-block">
+            <p>轨道交通线网规划图不作为线路开通后的出行参考。</p>
+        </div>
+
+        <div class="rail-sub-section">
+            <div class="rail-sub-item">
+                <div class="rail-sub-name">地铁</div>
+                <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+            </div>
+            <div class="rail-sub-item">
+                <div class="rail-sub-name">云巴</div>
+                <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+            </div>
+            <div class="rail-sub-item">
+                <div class="rail-sub-name">高速铁路</div>
+                <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+            </div>
+            <div class="rail-sub-item">
+                <div class="rail-sub-name">城际铁路</div>
+                <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 1.2rem;">其他交通工具</h2>
+        <div class="transport-list">
+            <div class="transport-row">
+                <div class="transport-name">巴士·BRT</div>
+                <div class="transport-detail">
+                    <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+                    <span class="company-list">瑞丰交通集团 Ruifeng Transportation Group</span>
+                </div>
+            </div>
+            <div class="transport-row">
+                <div class="transport-name">轻铁·有轨电车</div>
+                <div class="transport-detail">
+                    <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+                    <span class="company-list">瑞丰交通集团 Ruifeng Transportation Group</span>
+                </div>
+            </div>
+            <div class="transport-row">
+                <div class="transport-name">水上交通</div>
+                <div class="transport-detail">
+                    <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+                    <span class="company-list">滚木</span>
+                </div>
+            </div>
+            <div class="transport-row">
+                <div class="transport-name">陆路交通</div>
+                <div class="transport-detail">
+                    <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+                    <span class="company-list">瑞丰交投 Ruifeng Transportation Investment Group</span>
+                </div>
+            </div>
+            <div class="transport-row">
+                <div class="transport-name">飞机</div>
+                <div class="transport-detail">
+                    <div class="rail-sub-desc"><strong>介绍：</strong>滚木</div>
+                    <span class="company-list">瑞丰航空 Ruifeng Airlines</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-block" style="margin-top: 0.5rem; font-size:0.8rem;">以上交通方式均处于早期规划阶段，更多细节即将公开。</div>
+    </div>
+
+    <div id="rules" class="section">
+        <h2>玩家守则</h2>
+        <div class="qrcode-placeholder">
+            <div class="qrcode-box">
+                <img src="image/ruifeng_rules.png" alt="玩家守则二维码" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>联系方式</h2>
+        <div class="contact-block">
+            <div class="email-list">
+                <div class="email-card">
+                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-gov@outlook.com" target="_blank" class="email-btn">Yulian-YLUC-RuifengSAC-gov@outlook.com</a>
+                    <div class="email-biz">办理：提供服务器电子法例文件；问题咨询、投诉；成员资质审核、复核；入服申请书提交等</div>
+                </div>
+                <div class="email-card">
+                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-upc@outlook.com" target="_blank" class="email-btn">Yulian-YLUC-RuifengSAC-upc@outlook.com</a>
+                    <div class="email-biz">办理：建设者提交规划、项目评估、公共设施建设问卷提交；游客提交建设建议等</div>
+                </div>
+                <div class="email-card">
+                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-mot@outlook.com" target="_blank" class="email-btn">Yulian-YLUC-RuifengSAC-mot@outlook.com</a>
+                    <div class="email-biz">办理：建设者提交线网图、时刻表等车务信息；申请创建交通公司；游客提交班次建议等</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-area">
+        <button class="btn" onclick="window.open('https://www.bilibili.com', '_blank');">联盟宣传片 (B站)</button>
+        <button class="btn btn-outline" onclick="location.href='https://www.mtrbbs.top'">MTR官方论坛</button>
+        <button class="btn" style="background-color:#2a7a2a;" onclick="alert('联盟专属内部群组即将上线，敬请关注公告～');">联盟群组</button>
+    </div>
+
+    <div class="friend-links">
+        <h3>友情链接</h3>
+        <div class="links-group">
+            <a href="#" onclick="alert('瑞城联盟QQ群组筹备中，敬请期待~'); return false;">联盟社区</a>
+            <a href="https://unicomweb.pages.dev/" target="_blank">羽联服务器（隶属于优联科）</a>
+            <a href="#" onclick="alert('还没把链接打上去awa~'); return false;">天海雯溪联盟</a>
+        </div>
+        <p style="font-size:0.7rem; margin-top: 0.6rem; color: #6a6a6a;">点击链接即可跳转，部分资源为规划参考。</p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-buttons">
+            <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-gov@outlook.com&subject=加入瑞城联盟申请&body=我的QQ号：%0D%0A我的游戏ID：%0D%0A加入身份：游客/建设者%0D%0A建设经验（或其他服务器管理经验）：%0D%0A" target="_blank" class="footer-btn">加入我们</a>
+            <a href="homepage.html" class="footer-btn">瑞城联盟首页</a>
+            <a href="#" id="backToTopBtn" class="footer-btn">返回顶部</a>
+        </div>
+        <div class="copyright">
+            © 2026 瑞城联盟 | 保留所有权利
+        </div>
+    </div>
+</div>
+
+<script>
+    const backBtn = document.getElementById('backToTopBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+</script>
+</body>
+</html>
