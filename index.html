@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>瑞城联盟|主页·连接每一座理想城</title>
+    <title>瑞城联盟 | 连接每一座理想城</title>
     <style>
         * {
             margin: 0;
@@ -11,18 +11,55 @@
             box-sizing: border-box;
         }
 
+
+        :root {
+            --bg-body: #f0f4f0;
+            --bg-surface: #ffffff;
+            --text-primary: #1a2e1a;
+            --text-secondary: #3a5a3a;
+            --text-muted: #6b8c6b;
+            --border-light: rgba(60, 90, 50, 0.12);
+            --accent-primary: #2d6a2d;
+            --accent-light: rgba(45, 106, 45, 0.08);
+            --accent-grad-start: #2d6a2d;
+            --accent-grad-end: #4a8b4a;
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --btn-hover: #235823;
+        }
+
+        body.dark {
+            --bg-body: #121412;
+            --bg-surface: #1e231e;
+            --text-primary: #e8f0e8;
+            --text-secondary: #c0d0c0;
+            --text-muted: #8aa88a;
+            --border-light: rgba(100, 130, 90, 0.2);
+            --accent-primary: #5b9c5b;
+            --accent-light: rgba(75, 125, 65, 0.15);
+            --accent-grad-start: #5b9c5b;
+            --accent-grad-end: #7bb87b;
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            --glass-bg: rgba(30, 35, 30, 0.75);
+            --btn-hover: #4a854a;
+        }
+
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Noto Sans CJK SC', '黑体', 'Microsoft YaHei', 'PingFang SC', 'Arial', sans-serif;
-            background-color: #f5f5f0;
-            color: #1a1a1a;
+            font-family: 'Inter', -apple-system, 'Segoe UI', 'Roboto', 'Noto Sans CJK SC', '黑体', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
             line-height: 1.5;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .full-width {
+            width: 100%;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 2rem 1rem;
-            background-color: #ffffff;
+            padding: 0 2rem;
         }
 
         .navbar {
@@ -31,9 +68,13 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 1.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid #ccc;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .logo-area {
@@ -43,9 +84,10 @@
         }
 
         .logo-placeholder {
-            width: 52px;
-            height: 52px;
-            background-color: #e0e0d5;
+            width: 44px;
+            height: 44px;
+            background: var(--accent-light);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -59,14 +101,17 @@
         }
 
         .logo-text {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #2a5a2a;
+            font-weight: 700;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, var(--accent-grad-start), var(--accent-grad-end));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .nav-menu {
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
             flex-wrap: wrap;
             align-items: center;
         }
@@ -74,78 +119,108 @@
         .nav-menu a {
             text-decoration: none;
             font-weight: 500;
-            color: #2a2a2a;
+            color: var(--text-secondary);
             font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
         .nav-menu a:hover {
-            text-decoration: underline;
-            color: #000;
+            color: var(--accent-primary);
+        }
+
+        .nav-menu a strong {
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .theme-toggle {
+            background: var(--accent-light);
+            border: 1px solid var(--border-light);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-primary);
+            color: white;
         }
 
         .hero-banner {
             width: 100%;
             margin-bottom: 2rem;
-            background-color: #eaeae0;
-            border: none;
         }
 
         .hero-banner img {
             width: 100%;
             height: auto;
             display: block;
+            object-fit: cover;
+            max-height: 360px;
         }
 
         .section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         .section h2 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
             margin-bottom: 1rem;
-            padding-bottom: 0.2rem;
-            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid var(--accent-primary);
+            display: inline-block;
         }
 
         .text-block {
-            font-size: 0.95rem;
-            color: #1a1a1a;
-            line-height: 1.6;
-            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
         .card-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            margin: 1rem 0 1.5rem;
+            margin: 1.5rem 0;
         }
 
         .card-link {
             flex: 1;
-            min-width: 240px;
+            min-width: 260px;
             text-decoration: none;
             color: inherit;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card-link:hover {
+            transform: translateY(-6px);
         }
 
         .card {
-            border: 1px solid #ddd;
-            background: #fff;
-            padding: 0;
+            background: var(--bg-surface);
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--border-light);
+            transition: box-shadow 0.25s;
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
         }
 
         .card-img {
             width: 100%;
-            height: 140px;
-            background-color: #eaeae0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 170px;
             overflow: hidden;
         }
 
@@ -153,40 +228,47 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card-link:hover .card-img img {
+            transform: scale(1.02);
         }
 
         .card-header {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            padding: 1rem 1rem 0.3rem;
-            border-bottom: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            padding: 1rem 1.2rem 0.3rem;
         }
 
         .card-content {
-            padding: 0.5rem 1rem 1rem;
+            padding: 0.2rem 1.2rem 1.2rem;
             flex: 1;
         }
 
         .badge {
             display: inline-block;
-            background-color: #e8e8e0;
-            padding: 0.1rem 0.6rem;
+            background: var(--accent-light);
+            padding: 0.2rem 0.8rem;
             font-size: 0.7rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.3rem;
-            color: #1a1a1a;
+            font-weight: 600;
+            border-radius: 40px;
+            margin-right: 0.6rem;
+            margin-bottom: 0.4rem;
+            color: var(--accent-primary);
         }
 
         .status-tag {
             margin-top: 0.8rem;
             font-size: 0.8rem;
-            color: #4a4a4a;
+            color: var(--accent-primary);
+            font-weight: 500;
         }
 
         .progress-dev {
-            background: #eaeae0;
-            border-radius: 0;
+            background: var(--accent-light);
+            border-radius: 20px;
             height: 6px;
             width: 100%;
             margin: 0.8rem 0 0.3rem;
@@ -194,26 +276,34 @@
 
         .progress-fill {
             width: 30%;
-            background-color: #2a5a2a;
+            background: var(--accent-primary);
             height: 6px;
+            border-radius: 20px;
         }
 
         .news-card {
-            border: 1px solid #ddd;
-            background: #fff;
-            padding: 1rem;
+            background: var(--bg-surface);
+            border-radius: 20px;
+            padding: 1.2rem;
             margin-bottom: 1rem;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+        }
+
+        .news-card:hover {
+            border-color: var(--accent-primary);
         }
 
         .news-date {
             font-weight: 600;
-            color: #2a5a2a;
-            margin-bottom: 0.3rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
         }
 
         .news-content {
-            font-size: 0.9rem;
-            color: #1a1a1a;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
             line-height: 1.5;
         }
 
@@ -222,72 +312,77 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.2rem;
-            margin: 2rem 0 1.5rem;
+            margin: 2rem 0 1.8rem;
         }
 
         .btn {
             font-family: inherit;
             font-weight: 500;
-            border: 1px solid #ccc;
-            background-color: #2a7a2a;
+            border: none;
+            background: var(--accent-primary);
             color: white;
-            padding: 0.5rem 1.4rem;
+            padding: 0.7rem 1.8rem;
             font-size: 0.9rem;
+            border-radius: 48px;
             cursor: pointer;
+            transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
 
         .btn-outline {
-            background-color: white;
-            color: #2a5a2a;
-            border: 1px solid #2a5a2a;
+            background: transparent;
+            color: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
         }
 
         .btn:hover {
-            background-color: #1e5a1e;
-            color: white;
+            background: var(--btn-hover);
+            transform: translateY(-2px);
         }
+
         .btn-outline:hover {
-            background-color: #e8f0e0;
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
         }
 
         .friend-links {
-            border-top: 1px solid #ddd;
-            padding: 1.2rem 0 0.8rem;
-            margin: 0.5rem 0 1rem;
+            border-top: 1px solid var(--border-light);
+            padding: 1.5rem 0 1rem;
+            margin: 1rem 0;
         }
 
         .friend-links h3 {
             font-size: 1rem;
             font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
         }
 
         .links-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
         .links-group a {
-            color: #2a5a2a;
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
         .links-group a:hover {
-            text-decoration: underline;
+            color: var(--accent-primary);
         }
 
         .footer {
             margin-top: 2rem;
-            padding: 1rem 0 0.5rem;
-            border-top: 1px solid #ccc;
+            padding: 1.5rem 0 1rem;
+            border-top: 1px solid var(--border-light);
             text-align: center;
-            font-size: 0.75rem;
-            color: #5a5a5a;
         }
 
         .footer-buttons {
@@ -295,40 +390,62 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.2rem;
-            margin-bottom: 0.6rem;
+            margin-bottom: 1rem;
         }
 
         .footer-btn {
-            background: none;
-            color: #2a5a2a;
+            background: transparent;
+            color: var(--text-secondary);
             text-decoration: none;
-            border: 1px solid #aaa;
-            padding: 0.2rem 1rem;
+            border: 1px solid var(--border-light);
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
             font-size: 0.8rem;
-            cursor: pointer;
+            transition: all 0.2s;
         }
 
         .footer-btn:hover {
-            background-color: #eaeae0;
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
         }
 
-        @media (max-width: 780px) {
+        @media (max-width: 860px) {
             .container {
-                padding: 1rem;
+                padding: 0 1.2rem;
             }
+            .navbar {
+                padding: 0.8rem 1.2rem;
+            }
+            .nav-menu {
+                gap: 1rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 680px) {
             .card-grid {
                 flex-direction: column;
+            }
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+            }
+            .logo-area {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <div class="navbar">
+    <div class="navbar full-width">
         <div class="logo-area">
             <div class="logo-placeholder">
-                <img src="image/logo.png" alt="联盟徽章" onerror="this.style.display='none'">
+                <img src="image/logo.png" alt="瑞城联盟" onerror="this.style.display='none'">
             </div>
             <div class="logo-text">瑞城联盟</div>
         </div>
@@ -339,131 +456,161 @@
             <a href="#news">新闻</a>
             <a href="https://unicomweb.pages.dev/login">使用优联科账号<strong>登录</strong></a>
             <a href="login.html">使用瑞联账号<strong>登录</strong></a>
+            <button class="theme-toggle" id="themeToggle">深色模式</button>
         </div>
     </div>
 
-    <div class="hero-banner">
-        <img src="image/h_title" alt="瑞城联盟" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#eaeae0'; this.parentElement.style.minHeight='140px';">
-    </div>
 
-    <div class="section">
-        <h2>联盟核心</h2>
-        <div class="text-block">
-            <p>瑞城联盟以“连接每一座理想城”为宗旨，联合多个轨道交通服务器城市，推动建筑、线路与社区合作。</p>
+    <div class="container">
+        <div class="hero-banner">
+            <img src="image/h_title" alt="瑞城联盟" onerror="this.style.display='none'">
         </div>
-    </div>
 
-    <div class="card-grid">
-        <a href="ruifengsac.html" class="card-link">
-            <div class="card">
-                <div class="card-img">
-                    <img src="image/h_ruifengsac.png" alt="瑞丰" onerror="this.style.display='none'">
-                </div>
-                <div class="card-header">瑞丰特别行政区</div>
-                <div class="card-content">
-                    <p><span class="badge">2025·正常运营</span><span class="badge">羽联服务器</span></p>
-                    <p>瑞丰特别行政区作为瑞城联盟第一座正式规划城市，通过加盟的形式为服务器提供创意、建筑，丰富服务器日常，并即将通过优联科为媒介与瑞蓂市账号数据互通。</p>
-                    <div class="status-tag">点击卡片查看详情</div>
-                </div>
+        <div class="section">
+            <h2>联盟核心</h2>
+            <div class="text-block">
+                <p>瑞城联盟以“连接每一座理想城”为宗旨，联合多个轨道交通服务器城市，推动建筑、线路与社区合作。</p>
             </div>
-        </a>
+        </div>
 
-               <a href="ruimingcity.html" class="card-link">
-            <div class="card">
-                <div class="card-img">
-                    <img src="image/h_ruimingcity.png" alt="开发中" onerror="this.style.display='none'">
-                </div>
-                <div class="card-header">瑞蓂市</div>
-                <div class="card-content">
-                    <p><span class="badge">2026·未开放</span><span class="badge">瑞城服务器</span></p>
-                    <p>瑞城联盟第一座位于本服务器的城市，拥有完全的规划、管理、建设自主权，并计划与优联科旗下各服务器（含优联科下属瑞丰特别行政区）数据互通。</p>
-                    <div class="progress-dev">
-                        <div class="progress-fill"></div>
+        <div class="card-grid">
+            <a href="ruifengsac.html" class="card-link">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/h_ruifengsac.png" alt="瑞丰特别行政区" onerror="this.style.display='none'">
                     </div>
-                    <p style="font-size:0.8rem; margin-top: 0.25rem;">整体工程进度约30%·预计2026年7月开放试运营</p>
-                    <div class="status-tag">查看开发进度</div>
+                    <div class="card-header">瑞丰特别行政区</div>
+                    <div class="card-content">
+                        <p><span class="badge">2025·正常运营</span><span class="badge">羽联服务器</span></p>
+                        <p>瑞丰特别行政区作为瑞城联盟第一座正式规划城市，通过加盟的形式为服务器提供创意、建筑，丰富服务器日常，并即将通过优联科为媒介与瑞蓂市账号数据互通。</p>
+                        <div class="status-tag">点击卡片查看详情 →</div>
+                    </div>
                 </div>
+            </a>
+
+            <a href="ruimingcity.html" class="card-link">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/h_ruimingcity.png" alt="瑞蓂市" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-header">瑞蓂市</div>
+                    <div class="card-content">
+                        <p><span class="badge">2026·未开放</span><span class="badge">瑞城服务器</span></p>
+                        <p>瑞城联盟第一座位于本服务器的城市，拥有完全的规划、管理、建设自主权，并计划与优联科旗下各服务器（含优联科下属瑞丰特别行政区）数据互通。</p>
+                        <div class="progress-dev">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p style="font-size:0.8rem; margin-top: 0.25rem;">整体工程进度约30% · 预计2026年7月开放试运营</p>
+                        <div class="status-tag">查看开发进度 →</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="history.html" class="card-link">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/h_history.png" alt="早期规划" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-header">早期规划</div>
+                    <div class="card-content">
+                        <p><span class="badge">2019·已废弃</span><span class="badge">私下小规模联机</span></p>
+                        <p>瑞城联盟的故事始于它，一个仅为少数开发者提供测试环境的小型服务器。它的建筑、技术、资源包为后续所有系列奠定了不可替代的技术基础。</p>
+                        <div class="status-tag">查看历史和介绍 →</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div id="news" class="section">
+            <h2>联盟动态</h2>
+            <div class="news-card">
+                <div class="news-date">2026年4月4日</div>
+                <div class="news-content">《天海雯溪联盟（集团）羽联服务器瑞丰特别行政区电子法例（简体中文）》完成编撰，由瑞丰特别行政区管理委员会发布。该法例涵盖虚拟社区治理基本规范，电子版在群组内免费公开，设有反馈渠道。</div>
             </div>
-        </a>
-    </div>
-
-        <a href="history.html" class="card-link">
-            <div class="card">
-                <div class="card-img">
-                    <img src="image/h_history.png" alt="早期规划" onerror="this.style.display='none'">
-                </div>
-                <div class="card-header">早期规划</div>
-                <div class="card-content">
-                    <p><span class="badge">2019·已废弃</span><span class="badge">私下小规模联机</span></p>
-                    <p>瑞城联盟的故事始于它，一个仅为少数开发者提供测试环境的小型服务器。它的建筑、技术、资源包为后续所有系列奠定了不可替代的技术基础。</p>
-                    <div class="status-tag">查看历史和介绍</div>
-                </div>
+            <div class="news-card">
+                <div class="news-date">2026年4月5日</div>
+                <div class="news-content">基于瑞丰特别行政区的发展经验与早期规划遗产，瑞城联盟于今日宣告成立。联盟以"连接每一座理想城"为宗旨，推动轨道交通都市圈联合发展。未来将开放成员城市申请、联合规划项目及联盟论坛，并持续完善瑞联轨（Ruilink）技术标准。</div>
             </div>
-        </a>
-
-  
-    <div id="news" class="section">
-        <h2>联盟动态</h2>
-        
-        
-        
-        <div class="news-card">
-            <div class="news-date">2026年4月4日</div>
-            <div class="news-content">《天海雯溪联盟（集团）羽联服务器瑞丰特别行政区电子法例（简体中文）》完成编撰，由瑞丰特别行政区管理委员会发布。该法例涵盖虚拟社区治理基本规范，电子版在群组内免费公开，设有反馈渠道。</div>
-        </div>
-        
-        <div class="news-card">
-            <div class="news-date">2026年4月5日</div>
-            <div class="news-content">基于瑞丰特别行政区的发展经验与早期规划遗产，瑞城联盟于今日宣告成立。联盟以"连接每一座理想城"为宗旨，推动轨道交通都市圈联合发展。未来将开放成员城市申请、联合规划项目及联盟论坛，并持续完善瑞联轨（Ruilink）技术标准。</div>
+            <div class="news-card">
+                <div class="news-date">2026年4月12日</div>
+                <div class="news-content">瑞联城建与优联科决定共享服务器及网页的白名单及登录，目前仅支持通过优联科账号登录，预计2026年7月，待本网站适配完成后可使用瑞联城建账号登录，届时账号数据互通；同时引入后端，便于内容管理与更新。</div>
+            </div>
         </div>
 
-        <div class="news-card">
-            <div class="news-date">2026年4月12日</div>
-            <div class="news-content">瑞联城建与优联科决定共享服务器及网页的白名单及登录，目前仅支持通过优联科账号登录，预计2026年7月，待本网站适配完成后可使用瑞联城建账号登录，届时账号数据互通；同时引入后端，便于内容管理与更新。</div>
+        <div class="button-area">
+            <button class="btn" onclick="window.open('https://www.bilibili.com', '_blank');">联盟宣传片 (B站)</button>
+            <button class="btn btn-outline" onclick="location.href='https://www.mtrbbs.top'">MTR官方论坛</button>
+            <button class="btn" onclick="alert('登录后寻找管理员索要进入方式');">联盟群组</button>
         </div>
-    </div>
 
-    <div class="button-area">
-        <button class="btn" onclick="window.open('https://www.bilibili.com', '_blank');">联盟宣传片 (B站)</button>
-        <button class="btn btn-outline" onclick="location.href='https://www.mtrbbs.top'">MTR官方论坛</button>
-        <button class="btn" style="background-color:#2a7a2a;" onclick="alert('登录后寻找管理员索要进入方式');">联盟群组</button>
-    </div>
-
-    <div class="friend-links">
-        <h3>友情链接</h3>
-        <div class="links-group">
-            <a href="#" onclick="alert('登录后寻找管理员索要进入方式'); return false;">联盟社区</a>
-            <a href="https://unicomweb.pages.dev/" target="_blank">优联科</a>
-            <a href="#" onclick="alert('还没把链接打上去awa~'); return false;">天海雯溪联盟</a>
+        <div class="friend-links">
+            <h3>友情链接</h3>
+            <div class="links-group">
+                <a href="#" onclick="alert('登录后寻找管理员索要进入方式'); return false;">联盟社区</a>
+                <a href="https://unicomweb.pages.dev/" target="_blank">优联科</a>
+                <a href="#" onclick="alert('尚未开放'); return false;">天海雯溪联盟</a>
+            </div>
+            <p style="font-size:0.75rem; margin-top: 0.8rem; color: var(--text-muted);">点击链接即可跳转，部分资源为规划参考。</p>
         </div>
-        <p style="font-size:0.7rem; margin-top: 0.6rem; color: #6a6a6a;">点击链接即可跳转，部分资源为规划参考。</p>
-    </div>
 
-    <div class="footer">
-        <div class="footer-buttons">
-            <a href="https://unicomweb.pages.dev/login" target="_blank" class="footer-btn">使用优联科账号登录</a>
-            <a href="login.html" target="_blank" class="footer-btn">使用瑞联账号登录</a>
-            <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-gov@outlook.com&subject=加入瑞城联盟申请&body=我的QQ号：%0D%0A我的游戏ID：%0D%0A加入身份：游客/建设者%0D%0A建设经验（或其他服务器管理经验）：%0D%0A" target="_blank" class="footer-btn">加入我们</a>
-            <a href="#" id="backToTopBtn" class="footer-btn">回到顶部</a>
-        </div>
-        <div class="copyright">
-            © 2026 瑞城联盟 | 保留所有权利
+        <div class="footer">
+            <div class="footer-buttons">
+                <a href="https://unicomweb.pages.dev/login" target="_blank" class="footer-btn">使用优联科账号登录</a>
+                <a href="login.html" target="_blank" class="footer-btn">使用瑞联账号登录</a>
+                <a href="https://outlook.live.com/mail/0/deeplink/compose?to=Yulian-YLUC-RuifengSAC-gov@outlook.com&subject=加入瑞城联盟申请&body=我的QQ号：%0D%0A我的游戏ID：%0D%0A加入身份：游客/建设者%0D%0A建设经验（或其他服务器管理经验）：%0D%0A" target="_blank" class="footer-btn">加入我们</a>
+                <a href="#" id="backToTopBtn" class="footer-btn">回到顶部</a>
+            </div>
+            <div class="copyright">
+                © 2026 瑞城联盟 | 保留所有权利
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    const backBtn = document.getElementById('backToTopBtn');
-    if (backBtn) {
-        backBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    <script>
+
+        const toggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.body;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('ruicheng-theme', 'dark');
+                toggleBtn.textContent = '浅色模式';
+            } else {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('ruicheng-theme', 'light');
+                toggleBtn.textContent = '深色模式';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('ruicheng-theme');
+        if (savedTheme === 'dark') {
+            setTheme('dark');
+        } else if (savedTheme === 'light') {
+            setTheme('light');
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(prefersDark ? 'dark' : 'light');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            const isDark = htmlElement.classList.contains('dark');
+            setTheme(isDark ? 'light' : 'dark');
         });
-    }
 
-    document.querySelectorAll('a[target="_blank"]').forEach(link => {
-        link.setAttribute('rel', 'noopener noreferrer');
-    });
-</script>
+
+        const backBtn = document.getElementById('backToTopBtn');
+        if (backBtn) {
+            backBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    </script>
 </body>
 </html>
